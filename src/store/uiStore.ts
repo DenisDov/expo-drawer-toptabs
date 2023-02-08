@@ -4,7 +4,7 @@ import { create } from 'zustand';
 interface UiState {
   //   bears: number;
   darkMode: boolean;
-  //   increasePopulation: (by: number) => void;
+  toggleThemeMode: () => boolean;
 }
 
 const useUiStore = create<UiState>(set => ({

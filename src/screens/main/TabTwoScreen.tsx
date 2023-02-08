@@ -1,9 +1,9 @@
-import { View, Text } from "react-native";
+import { Box, Text } from '../../theme';
 
 export default function TabTwoScreen() {
   return (
-    <View style={{ flex: 1 }}>
+    <Box flex={1} backgroundColor="mainBackground" padding="m">
       <Text>Tab Two</Text>
-    </View>
+    </Box>
   );
 }

@@ -1,18 +1,13 @@
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import {
-  DarkTheme,
-  DefaultTheme,
-  NavigationContainer,
-} from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as React from 'react';
-import { ColorSchemeName } from 'react-native';
 
 import LoginScreen from '../screens/auth/Login';
 import RegisterScreen from '../screens/auth/Register';
 import ArticleScreen from '../screens/main/ArticleScreen';
-import FeedScreen from '../screens/main/FeedScreen';
+import SetingsScreen from '../screens/main/SetingsScreen';
 import TabOneScreen from '../screens/main/TabOneScreen';
 import TabTwoScreen from '../screens/main/TabTwoScreen';
 
@@ -30,8 +25,8 @@ const Tab = createMaterialTopTabNavigator();
 function MyTabs() {
   return (
     <Tab.Navigator>
-      <Tab.Screen name="tab 1" component={TabOneScreen} />
-      <Tab.Screen name="tab 2" component={TabTwoScreen} />
+      <Tab.Screen name="TabOne" component={TabOneScreen} />
+      <Tab.Screen name="TabTwo" component={TabTwoScreen} />
     </Tab.Navigator>
   );
 }
@@ -42,8 +37,9 @@ function RootNavigator() {
   const isAuth = true;
   return isAuth ? (
     <Drawer.Navigator>
-      <Drawer.Screen name="Feed" component={MyTabs} />
+      <Drawer.Screen name="Home" component={MyTabs} />
       <Drawer.Screen name="Article" component={ArticleScreen} />
+      <Drawer.Screen name="Setings" component={SetingsScreen} />
     </Drawer.Navigator>
   ) : (
     <Stack.Navigator>
