@@ -4,6 +4,7 @@ import { NavigationContainer, DarkTheme } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import * as React from "react";
 import { createDrawerNavigator } from "@react-navigation/drawer";
+import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 
 import TabOneScreen from "../screens/Home/TabOneScreen";
 import TabTwoScreen from "../screens/Home/TabTwoScreen";
@@ -22,6 +23,7 @@ export default function Navigation() {
 
 const Drawer = createDrawerNavigator();
 
+const Tab = createMaterialTopTabNavigator();
 // function MyDrawer() {
 //   return (
 //     <Drawer.Navigator>
@@ -31,13 +33,22 @@ const Drawer = createDrawerNavigator();
 //   );
 // }
 
+function MyTabs() {
+  return (
+    <Tab.Navigator>
+      <Tab.Screen name="tab 1" component={TabOneScreen} />
+      <Tab.Screen name="tab 2" component={TabTwoScreen} />
+    </Tab.Navigator>
+  );
+}
+
 const Stack = createNativeStackNavigator();
 
 function RootNavigator() {
   const isAuth = true;
   return isAuth ? (
     <Drawer.Navigator>
-      <Drawer.Screen name="Feed" component={FeedScreen} />
+      <Drawer.Screen name="Feed" component={MyTabs} />
       <Drawer.Screen name="Article" component={ArticleScreen} />
     </Drawer.Navigator>
   ) : (
