@@ -31,7 +31,7 @@ const App = () => {
           <QueryClientProvider client={queryClient}>
             <Navigation theme={darkMode ? DarkTheme : DefaultTheme} />
           </QueryClientProvider>
-          <StatusBar backgroundColor="hsl(211, 100%, 50%)" style="light" />
+          <StatusBar backgroundColor="hsl(211, 100%, 50%)"  />
         </SafeAreaProvider>
       </ThemeProvider>
     );

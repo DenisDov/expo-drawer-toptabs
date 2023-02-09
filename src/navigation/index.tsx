@@ -38,7 +38,13 @@ function RootNavigator() {
   return isAuth ? (
     <Drawer.Navigator>
       <Drawer.Screen name="Home" component={MyTabs} />
-      <Drawer.Screen name="Article" component={ArticleScreen} />
+      <Drawer.Screen
+        name="Article"
+        component={ArticleScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
       <Drawer.Screen name="Setings" component={SetingsScreen} />
     </Drawer.Navigator>
   ) : (
