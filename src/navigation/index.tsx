@@ -7,6 +7,7 @@ import * as React from 'react';
 import LoginScreen from '../screens/auth/Login';
 import RegisterScreen from '../screens/auth/Register';
 import ArticleScreen from '../screens/main/ArticleScreen';
+import FeedScreen from '../screens/main/FeedScreen';
 import SetingsScreen from '../screens/main/SetingsScreen';
 import TabOneScreen from '../screens/main/TabOneScreen';
 import TabTwoScreen from '../screens/main/TabTwoScreen';
@@ -45,6 +46,7 @@ function RootNavigator() {
           headerShown: false,
         }}
       />
+      <Drawer.Screen name="Feed" component={FeedScreen} />
       <Drawer.Screen name="Setings" component={SetingsScreen} />
     </Drawer.Navigator>
   ) : (

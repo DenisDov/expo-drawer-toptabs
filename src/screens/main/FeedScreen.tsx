@@ -1,9 +1,9 @@
-import { View, Text } from "react-native";
+import { Box, Text } from '../../theme';
 
 export default function FeedScreen() {
   return (
-    <View style={{ flex: 1 }}>
-      <Text>FeedScreen</Text>
-    </View>
+    <Box flex={1} backgroundColor="mainBackground" padding="m">
+      <Text>FEED</Text>
+    </Box>
   );
 }
