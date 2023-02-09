@@ -61,7 +61,7 @@ const TabOneScreen = () => {
           data={posts}
           renderItem={PostItem}
           keyExtractor={item => item.id.toString()}
-          estimatedItemSize={5}
+          estimatedItemSize={10}
           showsVerticalScrollIndicator={false}
           refreshControl={
             <RefreshControl

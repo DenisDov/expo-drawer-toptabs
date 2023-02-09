@@ -23,7 +23,7 @@ export const postsCacheKey = 'posts';
 
 const getPosts = async () => {
   await delay(1000); // debug
-  const response = await api.get(`${postsCacheKey}?limit=5`);
+  const response = await api.get(`${postsCacheKey}?limit=10`);
   // 🎉 parse against the schema
   return PostsSchema.parse(response.data.posts);
 };
