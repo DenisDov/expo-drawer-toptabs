@@ -5,7 +5,12 @@ module.exports = {
   singleQuote: true,
   trailingComma: 'all',
   endOfLine: 'auto',
-  importOrder: ['^components/(.*)$', '^[./]'],
+  importOrder: [
+    'components/(.*)$',
+    'store/(.*)$',
+    'locales/(.*)$',
+    'services/(.*)$',
+    '^[./]',
+  ],
   importOrderSeparation: true,
-  importOrderSortSpecifiers: true,
 };

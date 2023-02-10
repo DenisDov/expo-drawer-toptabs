@@ -3,14 +3,16 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { ActivityIndicator, RefreshControl } from 'react-native';
 
 import { PostItem } from '../../components/PostItem';
-import { useRefreshByUser } from '../../hooks/useRefreshByUser';
-import { useRefreshOnFocus } from '../../hooks/useRefreshOnFocus';
+
 import {
   IPosts,
   addPost,
   getPosts,
   postsCacheKey,
 } from '../../services/api/postsApi';
+
+import { useRefreshByUser } from '../../hooks/useRefreshByUser';
+import { useRefreshOnFocus } from '../../hooks/useRefreshOnFocus';
 import { Box, Text } from '../../theme';
 
 // import { generateFakePosts } from '../../utils/faker';

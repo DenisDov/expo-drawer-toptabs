@@ -4,17 +4,18 @@ import { QueryClientProvider } from '@tanstack/react-query';
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
+import useUiStore from './src/store/uiStore';
+
 import { onAppStateChange, queryClient } from './src/services/queryClient';
 
 import { useAppState } from './src/hooks/useAppState';
-import useCachedResources from './src/hooks/useCachedResources';
+import { useCachedResources } from './src/hooks/useCachedResources';
 import { useOnlineManager } from './src/hooks/useOnlineManager';
 import Navigation from './src/navigation';
 import { darkTheme, theme } from './src/theme';
-import useUiStore from './src/store/uiStore';
 
 const App = () => {
-  const darkMode = useUiStore((state) => state.darkMode)
+  const darkMode = useUiStore(state => state.darkMode);
   const isLoadingComplete = useCachedResources();
 
   //auto refetch on reconnect
@@ -31,12 +32,11 @@ const App = () => {
           <QueryClientProvider client={queryClient}>
             <Navigation theme={darkMode ? DarkTheme : DefaultTheme} />
           </QueryClientProvider>
-          <StatusBar backgroundColor="hsl(211, 100%, 50%)"  />
+          <StatusBar backgroundColor="hsl(211, 100%, 50%)" />
         </SafeAreaProvider>
       </ThemeProvider>
     );
   }
 };
-
 
 export default App;

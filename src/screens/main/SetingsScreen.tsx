@@ -1,7 +1,9 @@
 import { Switch } from 'react-native';
 
 import { Hr } from '../../components/Hr';
+
 import useUiStore from '../../store/uiStore';
+
 import { Box, Text } from '../../theme';
 
 export default function SettingsScreen() {

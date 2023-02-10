@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { IPost } from '../../services/api/types';
+
 import { Box, Text } from '../../theme';
 
 const PostItem = ({ item }: { item: IPost }) => {
