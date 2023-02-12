@@ -1,7 +1,6 @@
+import { Box } from '@app/theme';
 import React from 'react';
 import { StyleSheet } from 'react-native';
-
-import { Box } from '../../theme';
 
 const Hr = () => {
   return (
