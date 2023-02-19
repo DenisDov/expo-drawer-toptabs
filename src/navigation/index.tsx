@@ -13,6 +13,7 @@ import LoginScreen from '@app/screens/auth/Login';
 import RegisterScreen from '@app/screens/auth/Register';
 import ArticleScreen from '@app/screens/main/ArticleScreen';
 import ArticleScreen2 from '@app/screens/main/ArticleScreen2';
+import ArticleScreen3 from '@app/screens/main/ArticleScreen3';
 import FeedScreen from '@app/screens/main/FeedScreen';
 import SetingsScreen from '@app/screens/main/SetingsScreen';
 import TabOneScreen from '@app/screens/main/TabOneScreen';
@@ -89,6 +90,7 @@ function RootNavigator() {
         }}
       />
       <Drawer.Screen name="Article2" component={ArticleScreen2} />
+      <Drawer.Screen name="ArticleScreen3" component={ArticleScreen3} />
       <Drawer.Screen name="Feed" component={FeedScreen} />
       <Drawer.Screen name="Setings" component={SetingsScreen} />
     </Drawer.Navigator>
