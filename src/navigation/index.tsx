@@ -11,6 +11,7 @@ import useUiStore from '@app/store/uiStore';
 
 import LoginScreen from '@app/screens/auth/Login';
 import RegisterScreen from '@app/screens/auth/Register';
+import ArcSliderScreen from '@app/screens/main/ArcSlider';
 import ArticleScreen from '@app/screens/main/ArticleScreen';
 import ArticleScreen2 from '@app/screens/main/ArticleScreen2';
 import ArticleScreen3 from '@app/screens/main/ArticleScreen3';
@@ -97,6 +98,7 @@ function RootNavigator() {
       <Drawer.Screen name="ArticleScreen3" component={ArticleScreen3} />
       <Drawer.Screen name="LoopSliderScreen" component={LoopSliderScreen} />
       <Drawer.Screen name="ImageSliderScreen" component={ImageSliderScreen} />
+      <Drawer.Screen name="ArcSliderScreen" component={ArcSliderScreen} />
       <Drawer.Screen name="Feed" component={FeedScreen} />
       <Drawer.Screen name="Setings" component={SetingsScreen} />
     </Drawer.Navigator>
