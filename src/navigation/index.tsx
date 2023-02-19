@@ -75,9 +75,11 @@ function BottomTabNavigator() {
 const Stack = createNativeStackNavigator();
 
 function RootNavigator() {
+  const darkMode = useUiStore(state => state.darkMode);
   const isAuth = true;
   return isAuth ? (
-    <Drawer.Navigator>
+    <Drawer.Navigator
+      screenOptions={{ ...(darkMode && { headerTintColor: '#FFFFFF' }) }}>
       <Drawer.Screen
         name="Home"
         component={BottomTabNavigator}
