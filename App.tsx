@@ -4,6 +4,7 @@ import { QueryClientProvider } from '@tanstack/react-query';
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
+// import { Provider as PaperProvider } from 'react-native-paper';
 import useUiStore from './src/store/uiStore';
 
 import { onAppStateChange, queryClient } from './src/services/queryClient';
