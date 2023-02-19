@@ -2,7 +2,7 @@ import { FlashList } from '@shopify/flash-list';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { ActivityIndicator, RefreshControl } from 'react-native';
 
-import { PostItem } from '../../components/PostItem';
+import { PostItem } from '@app/components/PostItem';
 
 import {
   IPosts,

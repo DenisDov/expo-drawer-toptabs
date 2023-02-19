@@ -9,13 +9,14 @@ import { StyleSheet } from 'react-native';
 
 import useUiStore from '@app/store/uiStore';
 
-import LoginScreen from '../screens/auth/Login';
-import RegisterScreen from '../screens/auth/Register';
-import ArticleScreen from '../screens/main/ArticleScreen';
-import FeedScreen from '../screens/main/FeedScreen';
-import SetingsScreen from '../screens/main/SetingsScreen';
-import TabOneScreen from '../screens/main/TabOneScreen';
-import TabTwoScreen from '../screens/main/TabTwoScreen';
+import LoginScreen from '@app/screens/auth/Login';
+import RegisterScreen from '@app/screens/auth/Register';
+import ArticleScreen from '@app/screens/main/ArticleScreen';
+import ArticleScreen2 from '@app/screens/main/ArticleScreen2';
+import FeedScreen from '@app/screens/main/FeedScreen';
+import SetingsScreen from '@app/screens/main/SetingsScreen';
+import TabOneScreen from '@app/screens/main/TabOneScreen';
+import TabTwoScreen from '@app/screens/main/TabTwoScreen';
 
 export default function Navigation({ theme }) {
   return (
@@ -87,6 +88,7 @@ function RootNavigator() {
           headerShown: false,
         }}
       />
+      <Drawer.Screen name="Article2" component={ArticleScreen2} />
       <Drawer.Screen name="Feed" component={FeedScreen} />
       <Drawer.Screen name="Setings" component={SetingsScreen} />
     </Drawer.Navigator>

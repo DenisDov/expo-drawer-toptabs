@@ -4,7 +4,6 @@ const palette = {
   black: '#0B0B0B',
   white: '#F0F2F3',
   blue: 'hsl(211, 100%, 50%)',
-  blueActive: 'hsl(211, 100%, 40%)',
 };
 
 const theme = createTheme({
@@ -13,7 +12,6 @@ const theme = createTheme({
     text: palette.black,
     btnText: palette.white,
     main: palette.blue,
-    mainActive: palette.blueActive,
   },
   spacing: {
     s: 8,
