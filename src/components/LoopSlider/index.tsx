@@ -10,7 +10,7 @@ const data = [
 
 const ITEM_WIDTH = 200;
 const ITEM_HEIGHT = 200;
-const AUTO_SCROLL_INTERVAL = 3000; // in milliseconds
+const AUTO_SCROLL_INTERVAL = 500; // in milliseconds
 
 const LoopSlider = () => {
   const [index, setIndex] = useState(0);
