@@ -10,6 +10,7 @@ module.exports = {
     'store/(.*)$',
     'locales/(.*)$',
     'services/(.*)$',
+    '@app/screens/(.*)$',
     '^[./]',
   ],
   importOrderSeparation: true,

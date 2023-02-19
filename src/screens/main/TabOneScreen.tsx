@@ -2,7 +2,7 @@ import { FlashList } from '@shopify/flash-list';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { ActivityIndicator, RefreshControl } from 'react-native';
 
-import { PostItem } from '../../components/PostItem';
+import { PostItem } from '@app/components/PostItem';
 
 import {
   IPosts,
@@ -34,22 +34,22 @@ const TabOneScreen = () => {
   const { isRefetchingByUser, refetchByUser } = useRefreshByUser(refetch);
   useRefreshOnFocus(refetch);
 
-  const addPostMutation = useMutation({
-    mutationFn: addPost,
-    onSuccess: () => {
-      // Invalidate and refetch
-      queryClient.invalidateQueries({ queryKey: [postsCacheKey] });
-    },
-  });
+  // const addPostMutation = useMutation({
+  //   mutationFn: addPost,
+  //   onSuccess: () => {
+  //     // Invalidate and refetch
+  //     queryClient.invalidateQueries({ queryKey: [postsCacheKey] });
+  //   },
+  // });
 
-  const handleAddPost = () => {
-    const newPost = {
-      title: 'foo',
-      body: 'bar',
-      userId: 1,
-    };
-    addPostMutation.mutate(newPost);
-  };
+  // const handleAddPost = () => {
+  //   const newPost = {
+  //     title: 'foo',
+  //     body: 'bar',
+  //     userId: 1,
+  //   };
+  //   addPostMutation.mutate(newPost);
+  // };
 
   return (
     <Box flex={1} backgroundColor="mainBackground">
@@ -73,10 +73,10 @@ const TabOneScreen = () => {
           }
         />
       )}
-      <Text onPress={handleAddPost}>
+      {/* <Text onPress={handleAddPost}>
         ADD POST
         {isFetching && ' Updating...'}
-      </Text>
+      </Text> */}
     </Box>
   );
 };

@@ -1,9 +1,11 @@
-import { Box, Text } from '../../theme';
+import { Box } from '@app/theme';
+
+import { HelloWorld } from '@app/components/Skia/HelloWorld';
 
 export default function TabTwoScreen() {
   return (
-    <Box flex={1} backgroundColor="mainBackground" padding="m">
-      <Text>Tab Two</Text>
-    </Box>
+    // <Box flex={1}>
+    <HelloWorld />
+    // </Box>
   );
 }
