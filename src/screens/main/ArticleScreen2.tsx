@@ -1,6 +1,5 @@
 import { Text, Box } from '@app/theme';
 import React, { useState } from 'react';
-import { View, TouchableOpacity, StyleSheet } from 'react-native';
 
 import { Keyboard } from '@app/components/Keyboard';
 
