@@ -8,7 +8,7 @@ interface UserState {
 
 const useUserStore = create<UserState>(set => ({
   user: {
-    token: 'JWT 21131',
+    token: '',
   },
 }));
 
