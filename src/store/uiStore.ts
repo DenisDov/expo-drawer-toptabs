@@ -1,18 +1,25 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Appearance } from 'react-native';
 import { create } from 'zustand';
+import { createJSONStorage, persist } from 'zustand/middleware';
 
 interface UiState {
-  //   bears: number;
   darkMode: boolean;
-  toggleThemeMode: () => boolean;
+  toggleThemeMode: (darkMode: boolean) => void;
 }
 
-const useUiStore = create<UiState>(set => ({
-  darkMode: Appearance.getColorScheme() === 'dark',
-  //   bears: 0,
-  //   increasePopulation: () => set(state => ({ bears: state.bears + 1 })),
-  //   removeAllBears: () => set({ bears: 0 }),
-  toggleThemeMode: () => set(state => ({ darkMode: !state.darkMode })),
-}));
+export const useUiStore = create<UiState>()(
+  persist(
+    (set, get) => ({
+      darkMode: Appearance.getColorScheme() === 'dark',
+      toggleThemeMode: () => set(state => ({ darkMode: !state.darkMode })),
+    }),
+    {
+      name: 'ui-storage',
+      storage: createJSONStorage(() => AsyncStorage),
+      partialize: state => ({ darkMode: state.darkMode }),
+    },
+  ),
+);
 
 export default useUiStore;
