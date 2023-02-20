@@ -7,8 +7,9 @@ import { BlurView } from 'expo-blur';
 import * as React from 'react';
 import { StyleSheet } from 'react-native';
 
+import useUserStore from '@app/store/authStore';
+import useAuthStore from '@app/store/authStore';
 import useUiStore from '@app/store/uiStore';
-import useUserStore from '@app/store/userStore';
 
 import LoginScreen from '@app/screens/auth/Login';
 import RegisterScreen from '@app/screens/auth/Register';
@@ -79,8 +80,8 @@ const Stack = createNativeStackNavigator();
 
 function RootNavigator() {
   const darkMode = useUiStore(state => state.darkMode);
-  const isAuth = useUserStore(state => !!state.user.token);
-  return isAuth ? (
+  const isAuthenticated = useAuthStore(state => state.isAuthenticated);
+  return isAuthenticated ? (
     <Drawer.Navigator
       screenOptions={{ ...(darkMode && { headerTintColor: '#FFFFFF' }) }}>
       <Drawer.Screen
