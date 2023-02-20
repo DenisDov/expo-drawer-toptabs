@@ -1,12 +1,11 @@
 import { FontAwesome } from '@expo/vector-icons';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createDrawerNavigator } from '@react-navigation/drawer';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { BlurView } from 'expo-blur';
 import * as React from 'react';
-import { StyleSheet } from 'react-native';
 
+import useAuthStore from '@app/store/authStore';
 import useUiStore from '@app/store/uiStore';
 
 import LoginScreen from '@app/screens/auth/Login';
@@ -31,46 +30,14 @@ export default function Navigation({ theme }) {
 }
 
 const Drawer = createDrawerNavigator();
+const Tab = createMaterialTopTabNavigator();
 
-/**
- * A bottom tab navigator displays tab buttons on the bottom of the display to switch screens.
- * https://reactnavigation.org/docs/bottom-tab-navigator
- */
-const BottomTab = createBottomTabNavigator();
-
-function BottomTabNavigator() {
-  const darkMode = useUiStore(state => state.darkMode);
+function MyTabs() {
   return (
-    <BottomTab.Navigator
-      initialRouteName="TabOne"
-      screenOptions={{
-        headerShown: false,
-        tabBarStyle: { position: 'absolute' },
-        tabBarBackground: () => (
-          <BlurView
-            tint={darkMode ? 'dark' : 'light'}
-            intensity={100}
-            style={StyleSheet.absoluteFill}
-          />
-        ),
-      }}>
-      <BottomTab.Screen
-        name="TabOne"
-        component={TabOneScreen}
-        options={({ navigation }) => ({
-          // title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-        })}
-      />
-      <BottomTab.Screen
-        name="TabTwo"
-        component={TabTwoScreen}
-        options={{
-          // title: 'Tab Two',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-        }}
-      />
-    </BottomTab.Navigator>
+    <Tab.Navigator>
+      <Tab.Screen name="tab 1" component={TabOneScreen} />
+      <Tab.Screen name="tab 2" component={TabTwoScreen} />
+    </Tab.Navigator>
   );
 }
 
@@ -78,14 +45,16 @@ const Stack = createNativeStackNavigator();
 
 function RootNavigator() {
   const darkMode = useUiStore(state => state.darkMode);
-  const isAuth = true;
-  return isAuth ? (
+  const isAuthenticated = useAuthStore(state => state.isAuthenticated);
+  return isAuthenticated ? (
     <Drawer.Navigator
       screenOptions={{ ...(darkMode && { headerTintColor: '#FFFFFF' }) }}>
       <Drawer.Screen
         name="Home"
-        component={BottomTabNavigator}
-        // options={{ headerShown: false }}
+        component={MyTabs}
+        options={{
+          headerShadowVisible: false,
+        }}
       />
       <Drawer.Screen
         name="Article"
@@ -108,14 +77,4 @@ function RootNavigator() {
       <Stack.Screen name="Register" component={RegisterScreen} />
     </Stack.Navigator>
   );
-}
-
-/**
- * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
- */
-function TabBarIcon(props: {
-  name: React.ComponentProps<typeof FontAwesome>['name'];
-  color: string;
-}) {
-  return <FontAwesome size={30} style={{ marginBottom: -3 }} {...props} />;
 }
