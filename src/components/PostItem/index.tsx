@@ -3,7 +3,7 @@ import { Pressable } from 'react-native';
 
 import { IPost } from '../../services/api/types';
 
-import { Box, Text } from '../../theme';
+import { Box, Text, PressableBox } from '../../theme';
 
 const RIPPLE_CONFIG = {
   color: 'black',
@@ -13,15 +13,21 @@ const RIPPLE_CONFIG = {
 
 const PostItem = ({ item }: { item: IPost }) => {
   return (
-    <Pressable android_ripple={RIPPLE_CONFIG}>
-      <Box padding="m" borderRadius="s" backgroundColor="main" margin="s">
+    <PressableBox
+      android_ripple={RIPPLE_CONFIG}
+      elevation={5}
+      borderRadius="s"
+      backgroundColor="main"
+      overflow="hidden"
+      margin="s">
+      <Box padding="m">
         <Text marginBottom="s">{item.id}</Text>
         <Text numberOfLines={2} marginBottom="s">
           {item.title}
         </Text>
         <Text numberOfLines={3}>{item.body}</Text>
       </Box>
-    </Pressable>
+    </PressableBox>
   );
 };
 
