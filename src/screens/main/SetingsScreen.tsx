@@ -1,11 +1,11 @@
+import { Box, Text } from '@app/theme';
 import { Button, Switch } from 'react-native';
 
 import { Hr } from '@app/components/Hr';
+import TypingText from '@app/components/TypingText';
 
-import useUiStore from '@app/store/uiStore';
 import useAuthStore from '@app/store/authStore';
-
-import { Box, Text } from '@app/theme';
+import useUiStore from '@app/store/uiStore';
 
 export default function SettingsScreen() {
   const darkMode = useUiStore(state => state.darkMode);
@@ -31,6 +31,13 @@ export default function SettingsScreen() {
       </Box>
       <Hr />
       <Button title="Logout" onPress={handleLogout} />
+      <Hr />
+      <TypingText
+        text={[
+          'Hi! Welcome to the animated typing tutorial...',
+          'We are here to help',
+        ]}
+      />
     </Box>
   );
 }
