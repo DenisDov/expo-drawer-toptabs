@@ -1,5 +1,6 @@
 import { Box, Text } from '@app/theme';
 import { Ionicons } from '@expo/vector-icons';
+import { useTheme } from '@shopify/restyle';
 import * as LocalAuthentication from 'expo-local-authentication';
 import { useEffect } from 'react';
 import { BorderlessButton } from 'react-native-gesture-handler';
@@ -31,6 +32,7 @@ async function checkLocalAuthenticationExist() {
 }
 
 export default function LoginScreen() {
+  const theme = useTheme();
   useEffect(() => {
     checkLocalAuthenticationExist();
   }, []);
@@ -39,6 +41,7 @@ export default function LoginScreen() {
     <Box flex={1} backgroundColor="mainBackground" padding="m">
       <Box alignItems="center">
         <BorderlessButton
+          rippleColor={theme.colors.main}
           onPress={authenticateUser}
           borderless={false}
           style={{
@@ -48,7 +51,11 @@ export default function LoginScreen() {
             justifyContent: 'center',
             alignItems: 'center',
           }}>
-          <Ionicons name="finger-print-sharp" size={40} color="black" />
+          <Ionicons
+            name="finger-print-sharp"
+            size={40}
+            color={theme.colors.main}
+          />
         </BorderlessButton>
         <Text>Authenticate with biometrics</Text>
       </Box>
