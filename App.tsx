@@ -4,6 +4,8 @@ import { DarkTheme, DefaultTheme } from '@react-navigation/native';
 import { ThemeProvider } from '@shopify/restyle';
 import { QueryClientProvider } from '@tanstack/react-query';
 import { StatusBar } from 'expo-status-bar';
+import { StyleSheet } from 'react-native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import useUiStore from '@app/store/uiStore';
@@ -27,16 +29,24 @@ const App = () => {
     return null;
   } else {
     return (
-      <ThemeProvider theme={darkMode ? darkTheme : theme}>
-        <SafeAreaProvider>
-          <QueryClientProvider client={queryClient}>
-            <Navigation theme={darkMode ? DarkTheme : DefaultTheme} />
-          </QueryClientProvider>
-          <StatusBar backgroundColor="hsl(211, 100%, 50%)" />
-        </SafeAreaProvider>
-      </ThemeProvider>
+      <GestureHandlerRootView style={styles.root}>
+        <ThemeProvider theme={darkMode ? darkTheme : theme}>
+          <SafeAreaProvider>
+            <QueryClientProvider client={queryClient}>
+              <Navigation theme={darkMode ? DarkTheme : DefaultTheme} />
+            </QueryClientProvider>
+            <StatusBar backgroundColor="hsl(211, 100%, 50%)" />
+          </SafeAreaProvider>
+        </ThemeProvider>
+      </GestureHandlerRootView>
     );
   }
 };
+
+const styles = StyleSheet.create({
+  root: {
+    flex: 1,
+  },
+});
 
 export default App;
