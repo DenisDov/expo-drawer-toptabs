@@ -1,14 +1,19 @@
-import { Switch } from 'react-native';
+import { Button, Switch } from 'react-native';
 
-import { Hr } from '../../components/Hr';
+import { Hr } from '@app/components/Hr';
 
-import useUiStore from '../../store/uiStore';
+import useUiStore from '@app/store/uiStore';
+import useAuthStore from '@app/store/authStore';
 
-import { Box, Text } from '../../theme';
+import { Box, Text } from '@app/theme';
 
 export default function SettingsScreen() {
   const darkMode = useUiStore(state => state.darkMode);
   const toggleThemeMode = useUiStore(state => state.toggleThemeMode);
+
+  const handleLogout = () => {
+    useAuthStore.getState().setAuthenticated(false);
+  };
 
   return (
     <Box flex={1} backgroundColor="mainBackground" padding="m">
@@ -25,6 +30,7 @@ export default function SettingsScreen() {
         />
       </Box>
       <Hr />
+      <Button title="Logout" onPress={handleLogout} />
     </Box>
   );
 }
