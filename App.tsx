@@ -1,19 +1,18 @@
+import Navigation from '@app/navigation';
+import { darkTheme, theme } from '@app/theme';
 import { DarkTheme, DefaultTheme } from '@react-navigation/native';
 import { ThemeProvider } from '@shopify/restyle';
 import { QueryClientProvider } from '@tanstack/react-query';
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
-// import { Provider as PaperProvider } from 'react-native-paper';
-import useUiStore from './src/store/uiStore';
+import useUiStore from '@app/store/uiStore';
 
-import { onAppStateChange, queryClient } from './src/services/queryClient';
+import { onAppStateChange, queryClient } from '@app/services/queryClient';
 
-import { useAppState } from './src/hooks/useAppState';
-import { useCachedResources } from './src/hooks/useCachedResources';
-import { useOnlineManager } from './src/hooks/useOnlineManager';
-import Navigation from './src/navigation';
-import { darkTheme, theme } from './src/theme';
+import { useAppState } from '@app/hooks/useAppState';
+import { useCachedResources } from '@app/hooks/useCachedResources';
+import { useOnlineManager } from '@app/hooks/useOnlineManager';
 
 const App = () => {
   const darkMode = useUiStore(state => state.darkMode);
