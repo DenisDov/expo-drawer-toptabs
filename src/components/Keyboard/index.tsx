@@ -83,7 +83,7 @@ const Keyboard = ({ onKeyPress }) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'tomato',
+    backgroundColor: 'hsl(211, 100%, 50%)',
     borderRadius: 10,
     padding: 10,
   },
