@@ -34,7 +34,7 @@ const theme = createTheme({
   textVariants: {
     defaults: {
       fontFamily: 'plex-mono',
-      fontSize: 18,
+      fontSize: 16,
       color: 'text',
     },
     title: {

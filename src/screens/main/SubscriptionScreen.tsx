@@ -14,7 +14,7 @@ export default function SubscriptionScreen() {
   const theme = useTheme();
   return (
     <Box flex={1} backgroundColor="mainBackground" padding="m">
-      <Text fontSize={24} textAlign="center" marginBottom="m">
+      <Text variant="title" textAlign="center" marginBottom="m">
         Try for 7 days Free!
       </Text>
 
@@ -33,6 +33,8 @@ export default function SubscriptionScreen() {
           </Box>
         );
       })}
+
+      {/* CARDS */}
     </Box>
   );
 }
