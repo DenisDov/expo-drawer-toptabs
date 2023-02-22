@@ -9,7 +9,7 @@ const segments = [
 ];
 
 const RIPPLE_CONFIG = {
-  color: 'hsl(211, 100%, 40%)',
+  color: 'black',
   borderless: false,
   foreground: true,
 };
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
     height: 100,
     padding: 16,
     borderRadius: 16,
-    // overflow: 'hidden',
+    overflow: 'hidden',
     backgroundColor: 'hsl(211, 100%, 40%)',
   },
   selectedSegmentButton: {
@@ -66,14 +66,16 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowOffset: { width: 2, height: 2 },
     shadowRadius: 2,
-    elevation: 2,
+    elevation: 4,
   },
   segmentCount: {
     fontSize: 34,
     color: '#ffc96c',
+    lineHeight: 34,
   },
   segmentLabel: {
     color: '#F0F2F3',
+    lineHeight: 16,
   },
 });
 
