@@ -1,7 +1,7 @@
 import { Box, Text } from '@app/theme';
 import { Ionicons } from '@expo/vector-icons';
 import { useTheme } from '@shopify/restyle';
-import { StyleSheet } from 'react-native';
+import { Button, StyleSheet } from 'react-native';
 
 import SegmentedControl from '@app/components/Segmented';
 
@@ -9,37 +9,38 @@ const descriptions = [
   'Reach your goals with the complete Ad Astra experience',
   'Access the full meditation and sleeping tracks library',
   'Unlock all sections of the Journal',
-  'Relax your eyes using our wonderful dark theme',
-  'We plant a tree for every month of premium membership',
+  // 'Relax your eyes using our wonderful dark theme',
+  // 'We plant a tree for every month of premium membership',
 ];
 
 export default function SubscriptionScreen() {
   const theme = useTheme();
   return (
     <Box flex={1} backgroundColor="mainBackground" padding="m">
-      <Text variant="title" textAlign="center" marginBottom="m">
-        Try for 7 days Free!
-      </Text>
+      <Box flex={1}>
+        <Text variant="title" textAlign="center" marginBottom="m">
+          Try for 7 days Free!
+        </Text>
 
-      {descriptions.map((desc, i) => {
-        return (
-          <Box flexDirection="row" key={i} marginVertical="s">
-            <Ionicons
-              name="checkmark-circle-outline"
-              size={24}
-              color={theme.colors.main}
-              style={{ top: 3 }}
-            />
-            <Box flex={1} marginLeft="m">
-              <Text>{desc}</Text>
+        {descriptions.map((desc, i) => {
+          return (
+            <Box flexDirection="row" key={i} marginVertical="s">
+              <Ionicons
+                name="checkmark-circle-outline"
+                size={24}
+                color={theme.colors.main}
+                style={{ top: 3 }}
+              />
+              <Box flex={1} marginLeft="m">
+                <Text>{desc}</Text>
+              </Box>
             </Box>
-          </Box>
-        );
-      })}
+          );
+        })}
 
-      {/* CARDS */}
+        {/* CARDS */}
 
-      {/* <Box flexDirection="row">
+        {/* <Box flexDirection="row">
         <Box style={styles.box}>
           <Text style={styles.count}>1</Text>
           <Text style={styles.month}>month</Text>
@@ -54,9 +55,31 @@ export default function SubscriptionScreen() {
         </Box>
       </Box> */}
 
-      {/* SEGMENT */}
+        {/* SEGMENT */}
+        <Box marginVertical="xl">
+          <SegmentedControl />
+        </Box>
 
-      <SegmentedControl />
+        <Box marginBottom="l">
+          <Text textAlign="center" fontSize={12}>
+            Try 7 days for free - after $6.99/1 month.
+          </Text>
+          <Text textAlign="center" fontSize={12}>
+            Billed monthly. Cancel anytime.
+          </Text>
+        </Box>
+
+        <Box>
+          <Button title="Continue" />
+        </Box>
+      </Box>
+      <Box
+        flexDirection="row"
+        justifyContent="space-between"
+        alignItems="center">
+        <Text fontSize={12}>Terms & Conditions</Text>
+        <Text fontSize={12}>Privacy Policy</Text>
+      </Box>
     </Box>
   );
 }
