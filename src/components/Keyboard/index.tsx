@@ -2,7 +2,7 @@ import { Text, Box } from '@app/theme';
 import React, { useState } from 'react';
 import { View, TouchableOpacity, StyleSheet } from 'react-native';
 
-const Keyboard = ({ onKeyPress }) => {
+const Keyboard = ({ onKeyPress }: { onKeyPress: (key: string) => string }) => {
   const handleKeyPress = (key: string) => {
     onKeyPress(key);
   };
