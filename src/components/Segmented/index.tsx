@@ -47,6 +47,7 @@ const styles = StyleSheet.create({
     height: 100,
     borderRadius: 16,
     backgroundColor: 'hsl(211, 100%, 40%)',
+    padding: 16,
   },
   segmentButton: {
     flex: 1,
@@ -55,7 +56,7 @@ const styles = StyleSheet.create({
     height: 100,
     padding: 16,
     borderRadius: 16,
-    overflow: 'hidden',
+    // overflow: 'hidden',
     backgroundColor: 'hsl(211, 100%, 40%)',
   },
   selectedSegmentButton: {
