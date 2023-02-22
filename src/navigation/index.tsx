@@ -18,6 +18,7 @@ import FeedScreen from '@app/screens/main/FeedScreen';
 import ImageSliderScreen from '@app/screens/main/ImageSliderScreen';
 import LoopSliderScreen from '@app/screens/main/LoopSliderScreen';
 import SetingsScreen from '@app/screens/main/SetingsScreen';
+import SubscriptionScreen from '@app/screens/main/SubscriptionScreen';
 import TabOneScreen from '@app/screens/main/TabOneScreen';
 import TabTwoScreen from '@app/screens/main/TabTwoScreen';
 
@@ -69,6 +70,7 @@ function RootNavigator() {
       <Drawer.Screen name="ImageSliderScreen" component={ImageSliderScreen} />
       <Drawer.Screen name="ArcSliderScreen" component={ArcSliderScreen} />
       <Drawer.Screen name="Feed" component={FeedScreen} />
+      <Drawer.Screen name="Subscription" component={SubscriptionScreen} />
       <Drawer.Screen name="Setings" component={SetingsScreen} />
     </Drawer.Navigator>
   ) : (
