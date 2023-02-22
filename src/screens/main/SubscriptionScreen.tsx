@@ -3,6 +3,8 @@ import { Ionicons } from '@expo/vector-icons';
 import { useTheme } from '@shopify/restyle';
 import { StyleSheet } from 'react-native';
 
+import SegmentedControl from '@app/components/Segmented';
+
 const descriptions = [
   'Reach your goals with the complete Ad Astra experience',
   'Access the full meditation and sleeping tracks library',
@@ -37,7 +39,7 @@ export default function SubscriptionScreen() {
 
       {/* CARDS */}
 
-      <Box flexDirection="row">
+      {/* <Box flexDirection="row">
         <Box style={styles.box}>
           <Text style={styles.count}>1</Text>
           <Text style={styles.month}>month</Text>
@@ -50,7 +52,11 @@ export default function SubscriptionScreen() {
           <Text style={styles.count}>12</Text>
           <Text style={styles.month}>months</Text>
         </Box>
-      </Box>
+      </Box> */}
+
+      {/* SEGMENT */}
+
+      <SegmentedControl />
     </Box>
   );
 }
