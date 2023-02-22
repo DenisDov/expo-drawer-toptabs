@@ -1,6 +1,7 @@
 import { Box, Text } from '@app/theme';
 import { Ionicons } from '@expo/vector-icons';
 import { useTheme } from '@shopify/restyle';
+import { StyleSheet } from 'react-native';
 
 const descriptions = [
   'Reach your goals with the complete Ad Astra experience',
@@ -35,6 +36,39 @@ export default function SubscriptionScreen() {
       })}
 
       {/* CARDS */}
+
+      <Box flexDirection="row">
+        <Box style={styles.box}>
+          <Text style={styles.count}>1</Text>
+          <Text style={styles.month}>month</Text>
+        </Box>
+        <Box style={styles.box}>
+          <Text style={styles.count}>6</Text>
+          <Text style={styles.month}>months</Text>
+        </Box>
+        <Box style={styles.box}>
+          <Text style={styles.count}>12</Text>
+          <Text style={styles.month}>months</Text>
+        </Box>
+      </Box>
     </Box>
   );
 }
+
+const styles = StyleSheet.create({
+  box: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 100,
+    backgroundColor: 'hsl(211, 100%, 50%)',
+    padding: 16,
+  },
+  count: {
+    fontSize: 34,
+    color: '#ffc96c',
+  },
+  month: {
+    color: '#F0F2F3',
+  },
+});
