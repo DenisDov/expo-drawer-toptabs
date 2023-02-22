@@ -35,7 +35,7 @@ const App = () => {
             <QueryClientProvider client={queryClient}>
               <Navigation theme={darkMode ? DarkTheme : DefaultTheme} />
             </QueryClientProvider>
-            <StatusBar backgroundColor="hsl(211, 100%, 50%)" />
+            <StatusBar style={darkMode ? 'light' : 'dark'} />
           </SafeAreaProvider>
         </ThemeProvider>
       </GestureHandlerRootView>
