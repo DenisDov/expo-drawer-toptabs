@@ -1,7 +1,8 @@
 import { Box, Text } from '@app/theme';
-import { Button, Switch } from 'react-native';
+import { Switch } from 'react-native';
 
 import { Hr } from '@app/components/Hr';
+import { Button } from '@app/components/Button';
 import TypingText from '@app/components/TypingText';
 
 import useAuthStore from '@app/store/authStore';

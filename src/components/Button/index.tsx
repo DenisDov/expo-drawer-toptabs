@@ -5,11 +5,11 @@ import { ActivityIndicator, Pressable, StyleSheet } from 'react-native';
 
 type Props = {
   onPress: () => void;
-  label: string;
+  title: string;
   isLoading?: boolean;
 };
 
-const Button = ({ onPress, label, isLoading }: Props) => {
+const Button = ({ onPress, title, isLoading }: Props) => {
   const theme = useTheme();
   const RIPPLE_CONFIG = {
     // color: theme.colors.mainActive,
@@ -32,7 +32,7 @@ const Button = ({ onPress, label, isLoading }: Props) => {
       {isLoading ? (
         <ActivityIndicator color="white" />
       ) : (
-        <Text color="btnText">{label}</Text>
+        <Text color="btnText">{title}</Text>
       )}
     </Pressable>
   );
