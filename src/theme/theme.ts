@@ -1,4 +1,5 @@
 import { createTheme } from '@shopify/restyle';
+import tinycolor from 'tinycolor2';
 
 const palette = {
   black: '#0B0B0B',
@@ -12,6 +13,8 @@ const theme = createTheme({
     text: palette.black,
     btnText: palette.white,
     main: palette.blue,
+    mainActive: tinycolor(palette.blue).darken(10).toString(),
+    shadow: palette.black,
   },
   spacing: {
     s: 8,

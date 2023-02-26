@@ -1,7 +1,15 @@
 import { Text } from '@app/theme';
 import { useTheme } from '@shopify/restyle';
 import React from 'react';
-import { ActivityIndicator, Pressable, StyleSheet } from 'react-native';
+import {
+  ActivityIndicator,
+  Platform,
+  Pressable,
+  StyleSheet,
+} from 'react-native';
+import * as Haptics from 'expo-haptics';
+
+import { theme } from '@app/theme';
 
 type Props = {
   onPress: () => void;
@@ -9,25 +17,28 @@ type Props = {
   isLoading?: boolean;
 };
 
+const RIPPLE_CONFIG = {
+  color: theme.colors.mainActive,
+  borderless: true,
+  // foreground: true
+};
+
 const Button = ({ onPress, title, isLoading }: Props) => {
-  const theme = useTheme();
-  const RIPPLE_CONFIG = {
-    // color: theme.colors.mainActive,
-    borderless: true,
-    //   radius: 32,
-    //   foreground: false,
+  const handlePress = () => {
+    if (Platform.OS === 'ios') {
+      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+    }
+    onPress();
   };
   return (
     <Pressable
+      onPress={handlePress}
       disabled={isLoading}
-      onPress={onPress}
       hitSlop={16}
       android_ripple={RIPPLE_CONFIG}
       style={({ pressed }) => [
-        {
-          backgroundColor: pressed ? 'red' : theme.colors.main,
-        },
         styles.button,
+        Platform.OS === 'ios' && { opacity: pressed ? 0.7 : 1 },
       ]}>
       {isLoading ? (
         <ActivityIndicator color="white" />
@@ -45,8 +56,9 @@ const styles = StyleSheet.create({
     height: 48,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: theme.colors.main,
     borderRadius: 8,
-    shadowColor: '#0B0B0B',
+    shadowColor: theme.colors.shadow,
     shadowOpacity: 0.25,
     shadowOffset: { width: 2, height: 2 },
     shadowRadius: 2,

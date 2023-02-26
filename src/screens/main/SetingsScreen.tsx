@@ -31,7 +31,8 @@ export default function SettingsScreen() {
         />
       </Box>
       <Hr />
-      <Button title="Logout" onPress={handleLogout} />
+      {/* <Button title="Logout" onPress={handleLogout} /> */}
+      <Button title="Logout" onPress={() => null} />
       <Hr />
       <TypingText
         text={[
