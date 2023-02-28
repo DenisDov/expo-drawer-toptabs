@@ -5,6 +5,7 @@ const palette = {
   black: '#0B0B0B',
   white: '#F0F2F3',
   blue: 'hsl(211, 100%, 50%)',
+  shadow: '#00000020',
 };
 
 const theme = createTheme({
@@ -14,7 +15,7 @@ const theme = createTheme({
     btnText: palette.white,
     main: palette.blue,
     mainActive: tinycolor(palette.blue).darken(10).toString(),
-    shadow: palette.black,
+    shadow: palette.shadow,
   },
   spacing: {
     s: 8,

@@ -1,5 +1,5 @@
 import { Text } from '@app/theme';
-import { useTheme } from '@shopify/restyle';
+import { Shadow } from 'react-native-shadow-2';
 import React from 'react';
 import {
   ActivityIndicator,
@@ -20,7 +20,6 @@ type Props = {
 const RIPPLE_CONFIG = {
   color: theme.colors.mainActive,
   borderless: true,
-  // foreground: true
 };
 
 const Button = ({ onPress, title, isLoading }: Props) => {
@@ -31,37 +30,42 @@ const Button = ({ onPress, title, isLoading }: Props) => {
     onPress();
   };
   return (
-    <Pressable
-      onPress={handlePress}
-      disabled={isLoading}
-      hitSlop={16}
-      android_ripple={RIPPLE_CONFIG}
-      style={({ pressed }) => [
-        styles.button,
-        Platform.OS === 'ios' && { opacity: pressed ? 0.7 : 1 },
-      ]}>
-      {isLoading ? (
-        <ActivityIndicator color="white" />
-      ) : (
-        <Text color="btnText">{title}</Text>
-      )}
-    </Pressable>
+    <Shadow
+      startColor={theme.colors.shadow}
+      offset={[2, 2]}
+      distance={2}
+      style={styles.shadow}>
+      <Pressable
+        onPress={handlePress}
+        disabled={isLoading}
+        hitSlop={16}
+        android_ripple={RIPPLE_CONFIG}
+        style={({ pressed }) => [
+          styles.button,
+          { opacity: pressed ? 0.7 : 1 },
+        ]}>
+        {isLoading ? (
+          <ActivityIndicator color="white" />
+        ) : (
+          <Text color="btnText">{title}</Text>
+        )}
+      </Pressable>
+    </Shadow>
   );
 };
 
 export { Button };
 
 const styles = StyleSheet.create({
+  shadow: {
+    alignSelf: 'stretch',
+    borderRadius: 8,
+  },
   button: {
     height: 48,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: theme.colors.main,
     borderRadius: 8,
-    shadowColor: theme.colors.shadow,
-    shadowOpacity: 0.25,
-    shadowOffset: { width: 2, height: 2 },
-    shadowRadius: 2,
-    elevation: 2,
   },
 });
