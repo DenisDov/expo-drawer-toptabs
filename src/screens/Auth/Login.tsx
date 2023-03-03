@@ -11,7 +11,7 @@ async function authenticateUser() {
   const result = await LocalAuthentication.authenticateAsync({
     // cancel modal if user want to login with phone number
     cancelLabel: 'Cancel',
-    disableDeviceFallback: true,
+    // disableDeviceFallback: false,
   });
   console.log('result: ', result);
   if (result.success) {
@@ -22,19 +22,19 @@ async function authenticateUser() {
   }
 }
 
-async function checkLocalAuthenticationExist() {
-  const result = await LocalAuthentication.isEnrolledAsync();
-  if (result) {
-    authenticateUser();
-  } else {
-    console.log('Biometric not saved yet');
-  }
-}
+// async function checkLocalAuthenticationExist() {
+//   const result = await LocalAuthentication.isEnrolledAsync();
+//   if (result) {
+//     authenticateUser();
+//   } else {
+//     console.log('Biometric not saved yet');
+//   }
+// }
 
 export default function LoginScreen() {
   const theme = useTheme();
   useEffect(() => {
-    checkLocalAuthenticationExist();
+    authenticateUser();
   }, []);
 
   return (

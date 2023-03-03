@@ -14,10 +14,12 @@ import {
 import { useRefreshByUser } from '../../hooks/useRefreshByUser';
 import { useRefreshOnFocus } from '../../hooks/useRefreshOnFocus';
 import { Box, Text } from '../../theme';
+import { useTheme } from '@shopify/restyle';
 
 // import { generateFakePosts } from '../../utils/faker';
 
 const TabOneScreen = () => {
+  const theme = useTheme();
   const queryClient = useQueryClient();
   // const placeholderData = useMemo(() => generateFakePosts(2), []);
   const {
@@ -54,7 +56,7 @@ const TabOneScreen = () => {
   return (
     <Box flex={1} backgroundColor="mainBackground">
       {status === 'loading' ? (
-        <ActivityIndicator />
+        <ActivityIndicator color={theme.colors.main} />
       ) : status === 'error' ? (
         <Text>Error: {error.message}</Text>
       ) : (
@@ -69,6 +71,7 @@ const TabOneScreen = () => {
             <RefreshControl
               refreshing={isRefetchingByUser}
               onRefresh={refetchByUser}
+              tintColor={theme.colors.main}
             />
           }
         />
